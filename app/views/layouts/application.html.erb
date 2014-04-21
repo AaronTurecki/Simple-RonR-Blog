@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+
+    <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="wrapper" style="background-color:grey;height:100%;margin-top:-50px;">
+    <div class="container" style="margin-left:300px; margin-top:50px;background-color:white; height:1000px;width:500px;">
+        <div class="style" style="margin-left:20px;padding-top:10px;">
+
+        <nav style="margin-left:29%;">
+            <h1><a href="http://localhost:3000/articles">Simple Rails Blog</a></h1>
+        </nav>
+        <hr style="margin-left:-20px;">
+
+        <div style="margin-left:25%;">Username: <i>user</i> Password: <i>secret</i></div>
+        <hr style="margin-left:-20px;">
+
+            <%= yield %>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

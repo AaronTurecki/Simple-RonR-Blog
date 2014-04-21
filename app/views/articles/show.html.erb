@@ -1,0 +1,45 @@
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+<br><br>
+  <strong>Text:</strong>
+  <%= @article.text %>
+
+ 
+<h2 style="margin-left:10px;">Comments:</h2>
+<div style="margin-left:16px;">
+<% @article.comments.each do |comment| %>
+    <hr style="margin-left:-16px;">
+    <strong>Commenter:</strong>
+     <%= comment.commenter %><br><br>
+
+    <strong>Comment:</strong><br>
+    <%= comment.body %><br><br>
+
+    <%= link_to 'Destroy Comment', [comment.article, comment],
+                   method: :delete,
+                   data: { confirm: 'Are you sure?' } %><br><br>
+
+<% end %>
+</div>
+
+<hr>
+<h2 style="margin-left:10px;">Add a comment:</h2>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %><br><br>
+
+    <%= f.label :body %><br>
+    <%= f.text_area :body %><br><br>
+
+    <%= f.submit %>
+
+<% end %>
+<br>
+</p>
+<div style="margin-left:20px;">
+<%= link_to 'Back', articles_path %>
+| <%= link_to 'Edit', edit_article_path(@article) %>
+</div>
+<br><br><br>
